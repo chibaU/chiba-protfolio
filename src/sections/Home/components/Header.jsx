@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
@@ -26,6 +27,7 @@ export function Header() {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Expertise" },
+    { id: "education", label: "Education" },
     { id: "projects", label: "Work" },
     { id: "contact", label: "Contact" },
   ];
@@ -50,9 +52,9 @@ export function Header() {
             whileTap={{ scale: 0.95 }}
           >
             <div className="flex items-center gap-2">
-              <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-teal-500 flex items-center justify-center">
+              <div className="relative w-10 h-10 rounded-xl bg-linear-to-br from-purple-600 to-teal-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">A</span>
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-600 to-teal-500 blur opacity-50 group-hover:opacity-75 transition-opacity" />
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-purple-600 to-teal-500 blur opacity-50 group-hover:opacity-75 transition-opacity" />
               </div>
               <span className="font-bold text-xl text-white hidden sm:block">
                 Abdallah Chiba
@@ -73,7 +75,7 @@ export function Header() {
                 className="relative px-4 py-2 text-gray-400 hover:text-white transition-colors group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-teal-500 transition-all group-hover:w-3/4" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-purple-600 to-teal-500 transition-all group-hover:w-3/4" />
               </motion.button>
             ))}
           </nav>
@@ -84,7 +86,7 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("contact")}
-              className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-teal-500 text-white rounded-xl font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 transition-all"
+              className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-linear-to-r from-purple-600 to-teal-500 text-white rounded-xl font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 transition-all"
             >
               Hire Me
             </motion.button>
@@ -148,7 +150,7 @@ export function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.05 }}
                 onClick={() => scrollToSection("contact")}
-                className="mt-4 px-4 py-3 bg-gradient-to-r from-purple-600 to-teal-500 text-white rounded-xl font-medium text-center"
+                className="mt-4 px-4 py-3 bg-linear-to-r from-purple-600 to-teal-500 text-white rounded-xl font-medium text-center"
               >
                 Hire Me
               </motion.button>

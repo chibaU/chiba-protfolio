@@ -1,9 +1,20 @@
-import SectionHeader from "@/components/custom/SectionHeader";
-import { Award, Briefcase, GraduationCap } from "lucide-react";
-import React from "react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion"; // تأكد من استخدام المسار الصحيح للمكتبة
+import { useRef } from "react";
+import { ImageWithFallback } from "@assets/ImageWithFallback";
+import { Award, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
-const About = () => {
+function About() {
+  // إزالة تعريف النوع <HTMLDivElement>
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+
   const achievements = [
     {
       icon: Briefcase,
@@ -25,13 +36,40 @@ const About = () => {
     },
   ];
   return (
-    <section id="about" className="relative py-32 bg-gray-900 overflow-hidden">
-      <div className="container mx-auto">
-        <SectionHeader
-          badge="About Me"
-          title="Turning Ideas Into"
-          highlight="Digital Reality"
-        />
+    <section
+      ref={containerRef}
+      id="about"
+      className="relative py-32 bg-gray-900 overflow-hidden"
+    >
+      {/* Background decoration */}
+      <motion.div
+        style={{ x, rotate }}
+        className="absolute top-1/4 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section header with unique styling */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <Sparkles className="w-8 h-8 text-purple-400" />
+            <span className="text-purple-400 font-semibold tracking-wider uppercase text-sm">
+              About Me
+            </span>
+          </div>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold max-w-4xl">
+            Turning Ideas Into
+            <br />
+            <span className="bg-linear-to-r from-purple-600 via-pink-600 to-teal-500 bg-clip-text text-transparent">
+              Digital Reality
+            </span>
+          </h2>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image side with premium styling */}
@@ -52,7 +90,7 @@ const About = () => {
                 transition={{ duration: 0.3 }}
                 className="relative rounded-3xl overflow-hidden border-4 border-gray-800 shadow-2xl"
               >
-                <img
+                <ImageWithFallback
                   src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzA4MDgzNzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Alex Morgan"
                   className="w-full aspect-4/5 object-cover"
@@ -92,30 +130,30 @@ const About = () => {
             {/* Story */}
             <div className="space-y-6">
               <p className="text-xl text-gray-300 leading-relaxed">
-                With over{" "}
+                Hi, I'm{" "}
                 <span className="font-bold text-purple-400">
-                  5 years of experience
+                  Chiba Abdallah
                 </span>{" "}
-                in the digital landscape, I've evolved from a curious developer
-                into a strategic
+                A Full Stack Developer specialized in building modern and
+                efficient
                 <span className="font-bold text-teal-400">
                   {" "}
-                  digital architect
+                  web applications
                 </span>
                 .
               </p>
 
               <p className="text-lg text-gray-400 leading-relaxed">
-                My approach combines technical excellence with creative
-                problem-solving. I don't just write code—I craft experiences
-                that drive business results and delight users. Every project is
-                an opportunity to push boundaries and set new standards.
-              </p>
-
-              <p className="text-lg text-gray-400 leading-relaxed">
-                Based in <span className="font-semibold">San Francisco</span>,
-                working with clients worldwide, I bring a global perspective to
-                every challenge.
+                I hold a Master's degree in Computer Science specializing in
+                Information Systems, Optimization, and Decision (SIOD) from
+                Mohamed Khider University of Biskra, Algeria. My passion is
+                transforming complex ideas into simple, user-friendly software
+                solutions. I combine my academic background with practical web
+                development experience to build modern and innovative
+                applications. I thrive on technical challenges and continuously
+                seek to learn new technologies and enhance my skills. Whether
+                building interactive UIs with React or developing robust APIs
+                with Node.js, I focus on writing clean, maintainable code.
               </p>
             </div>
 
@@ -176,6 +214,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+}
 
 export default About;

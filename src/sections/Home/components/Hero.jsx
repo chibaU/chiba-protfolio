@@ -83,7 +83,7 @@ export function Hero() {
               >
                 <Terminal className="w-6 h-6 text-teal-400" />
                 <p className="text-xl sm:text-2xl text-gray-300 font-light">
-                  Full Stack Developer & Digital Craftsman
+                  Full Stack Web Developer
                 </p>
               </motion.div>
 
@@ -108,9 +108,8 @@ export function Hero() {
               transition={{ delay: 0.6 }}
               className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl"
             >
-              I transform complex problems into elegant digital solutions.
-              Specializing in React & Node.js ecosystems, crafting experiences
-              that users love and businesses trust.
+              Building high-performance web applications with cutting-edge tech
+              stacks.
             </motion.p>
 
             {/*  CTA */}

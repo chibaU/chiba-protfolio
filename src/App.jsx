@@ -6,6 +6,7 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Skills from "./sections/Skills";
 import { ScrollToTop } from "./components/custom/ScrollToTop";
+import Education from "./sections/Education";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <main>
         <About />
         <Skills />
+        <Education />
         <Work />
         <Contact />
       </main>

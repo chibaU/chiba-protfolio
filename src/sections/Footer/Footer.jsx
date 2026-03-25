@@ -130,6 +130,7 @@ function Footer() {
                 { label: "Home", id: "home" },
                 { label: "About", id: "about" },
                 { label: "Expertise", id: "skills" },
+                { label: "Education", id: "education" },
                 { label: "Projects", id: "projects" },
                 { label: "Contact", id: "contact" },
               ].map((link) => (
