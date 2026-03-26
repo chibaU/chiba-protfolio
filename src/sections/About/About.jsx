@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { ImageWithFallback } from "@assets/ImageWithFallback";
 import { Award, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
+import admin from "@assets/undraw_feeling-proud_tdos.png";
+
 function About() {
   // إزالة تعريف النوع <HTMLDivElement>
   const containerRef = useRef(null);
@@ -15,26 +17,6 @@ function About() {
   const x = useTransform(scrollYProgress, [0, 1], [-100, 100]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
-  const achievements = [
-    {
-      icon: Briefcase,
-      value: "50+",
-      label: "Projects Completed",
-      description: "From startups to enterprise",
-    },
-    {
-      icon: Award,
-      value: "15+",
-      label: "Industry Awards",
-      description: "Recognition for excellence",
-    },
-    {
-      icon: GraduationCap,
-      value: "10+",
-      label: "Certifications",
-      description: "Continuous learning",
-    },
-  ];
   return (
     <section
       ref={containerRef}
@@ -91,8 +73,8 @@ function About() {
                 className="relative rounded-3xl overflow-hidden border-4 border-gray-800 shadow-2xl"
               >
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzA4MDgzNzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Alex Morgan"
+                  src={admin}
+                  alt="Abdallah Chiba"
                   className="w-full aspect-4/5 object-cover"
                 />
 
@@ -155,35 +137,6 @@ function About() {
                 building interactive UIs with React or developing robust APIs
                 with Node.js, I focus on writing clean, maintainable code.
               </p>
-            </div>
-
-            {/* Achievements grid */}
-            <div className="grid sm:grid-cols-3 gap-6 pt-8">
-              {achievements.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="relative group"
-                >
-                  <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-teal-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity blur-xl" />
-                  <div className="relative p-6 rounded-2xl bg-gray-800 border border-gray-700 group-hover:border-teal-500 transition-colors">
-                    <item.icon className="w-8 h-8 mb-3 text-purple-400" />
-                    <div className="text-3xl font-bold text-white mb-1">
-                      {item.value}
-                    </div>
-                    <div className="text-sm font-semibold text-gray-300 mb-1">
-                      {item.label}
-                    </div>
-                    <div className="text-xs text-gray-400">
-                      {item.description}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </div>
 
             {/* CTA */}

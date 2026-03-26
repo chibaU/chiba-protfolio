@@ -2,14 +2,17 @@ import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 import SectionHeader from '@/components/custom/SectionHeader';
 
+  
+ 
+
 function Skills() {
   const skillSets = [
     {
       category: 'Frontend Mastery',
       skills: [
         { name: 'React.js', level: 95, color: 'from-blue-500 to-cyan-500' },
-        { name: 'Next.js', level: 90, color: 'from-gray-700 to-gray-900' },
-        { name: 'TypeScript', level: 92, color: 'from-blue-600 to-blue-800' },
+        { name: 'JavaScript (ES6+)', level: 90, color: 'from-gray-700 to-gray-900' },
+        { name: 'Responsive Design', level: 92, color: 'from-blue-600 to-blue-800' },
         { name: 'Tailwind CSS', level: 95, color: 'from-cyan-500 to-teal-500' },
       ],
     },
@@ -18,24 +21,15 @@ function Skills() {
       skills: [
         { name: 'Node.js', level: 93, color: 'from-green-600 to-green-800' },
         { name: 'Express', level: 90, color: 'from-gray-600 to-gray-800' },
-        { name: 'GraphQL', level: 85, color: 'from-pink-600 to-purple-600' },
+        { name: 'Database', level: 95, color: 'from-pink-600 to-purple-600' },
         { name: 'REST APIs', level: 95, color: 'from-orange-500 to-red-500' },
       ],
     },
-    {
-      category: 'Database & Cloud',
-      skills: [
-        { name: 'MongoDB', level: 88, color: 'from-green-500 to-green-700' },
-        { name: 'PostgreSQL', level: 85, color: 'from-blue-500 to-indigo-600' },
-        { name: 'AWS', level: 80, color: 'from-yellow-500 to-orange-500' },
-        { name: 'Firebase', level: 87, color: 'from-yellow-600 to-orange-600' },
-      ],
-    },
+  
   ];
-
+  
   const tools = [
-    'Git', 'Docker', 'Figma', 'VS Code', 'Webpack', 'Jest', 
-    'Redux', 'WebSocket', 'CI/CD', 'Vercel', 'Linux', 'Agile'
+    'Git', 'Docker',  'VS Code', 'Postman (API Testing)', 'NPM/Yarn', 'Vercel',  'Netlify' , 'Linux',
   ];
 
   return (
