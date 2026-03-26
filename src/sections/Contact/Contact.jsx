@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
@@ -15,12 +16,14 @@ import {
 import SectionHeader from "@/components/custom/SectionHeader";
 
 function Contact() {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    budget: "",
+    subject: "", // أضفنا الحقل هنا
     message: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -28,15 +31,25 @@ function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Mock submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: "", email: "", budget: "", message: "" });
-      }, 3000);
-    }, 1500);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // استدعاء من الـ .env
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // استدعاء من الـ .env
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY, // استدعاء من الـ .env
+      )
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+
+        setTimeout(() => setIsSubmitted(false), 3000);
+      })
+      .catch((error) => {
+        setIsSubmitting(false);
+        console.error("FAILED...", error);
+        alert("Oops! Something went wrong. Please try again.");
+      });
   };
 
   const handleChange = (e) => {
@@ -58,16 +71,16 @@ function Contact() {
     {
       icon: MapPin,
       title: "Algeria",
-      value: "Algeria",
-      description: "Available worldwide",
+      value: "Remote",
+      description: "Available worldwide ",
       href: "#",
       color: "from-teal-600 to-cyan-600",
     },
     {
       icon: Calendar,
-      title: "Schedule",
-      value: "Book a Call",
-      description: "30-min consultation",
+      title: "Availability",
+      value: "Open for Projects",
+      description: "Available 7 days a week for new opportunities",
       href: "#",
       color: "from-orange-600 to-red-600",
     },
@@ -216,6 +229,7 @@ function Contact() {
 
               {/* Form container */}
               <form
+                ref={formRef}
                 onSubmit={handleSubmit}
                 className="relative bg-gray-900 border border-gray-800 rounded-3xl p-8 sm:p-10"
               >
@@ -261,27 +275,23 @@ function Contact() {
                     </div>
                   </div>
 
-                  {/* Budget */}
+                  {/* Project Subject */}
                   <div>
                     <label
-                      htmlFor="budget"
+                      htmlFor="subject"
                       className="block text-sm font-semibold text-white mb-2"
                     >
-                      Project Budget
+                      Project Subject
                     </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="What's your project about?"
+                      value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all text-white"
-                    >
-                      <option value="">Select your budget range</option>
-                      <option value="5k-10k">$5,000 - $10,000</option>
-                      <option value="10k-25k">$10,000 - $25,000</option>
-                      <option value="25k-50k">$25,000 - $50,000</option>
-                      <option value="50k+">$50,000+</option>
-                    </select>
+                      className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all text-white placeholder-gray-500"
+                    />
                   </div>
 
                   {/* Message */}

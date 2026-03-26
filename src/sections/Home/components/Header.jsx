@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { useIsDesktop } from "@/components/ui/use-mobile";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,14 +16,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isDesktop = useIsDesktop();
+
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
+    setMobileMenuOpen(false);
+
+    const scroll = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    if (isDesktop) {
+      scroll();
+    } else {
+      setTimeout(scroll, 300);
     }
   };
-
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },

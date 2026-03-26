@@ -1,54 +1,46 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ImageWithFallback } from "@assets/ImageWithFallback";
 import { ExternalLink, Github, Sparkles, ArrowUpRight } from "lucide-react";
 import SectionHeader from "@/components/custom/SectionHeader";
-
+import LandingPage_pic from "@assets/landing-page.png";
+import MovieSearch_pic from "@assets/movie-search.png";
+import WeatherApp_pic from "@assets/weather-app.png";
 function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
-
   const projects = [
     {
       id: 1,
-      title: "FinanceFlow",
-      subtitle: "E-Commerce Platform",
+      title: "Movie Search",
+      subtitle: "Movie Search Application",
       description:
-        "A comprehensive e-commerce solution handling $2M+ in transactions. Features real-time inventory, advanced analytics, and seamless payment integration.",
-      longDescription:
-        "Built a scalable platform that increased client revenue by 150%. Implemented micro-services architecture, real-time data sync, and AI-powered recommendations.",
-      image:
-        "https://images.unsplash.com/photo-1643906226799-59eab234e41d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBtb2JpbGUlMjBhcHB8ZW58MXx8fHwxNzcwNzYxMTEzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe", "Redis"],
+        "A dynamic movie search platform leveraging the OMDB API to provide detailed information about films and TV series.",
+      image: MovieSearch_pic,
+      tags: ["React", "Tailwind CSS", "REST API", "OMDB API"],
       color: "from-purple-600 to-pink-600",
-      metrics: ["150% Revenue Growth", "50K+ Users", "99.9% Uptime"],
+      github: "https://github.com/chibaU/Movie-app",
+      demo: "https://simple-movie-search-blush.vercel.app/",
     },
     {
       id: 2,
-      title: "DataVision Pro",
-      subtitle: "Analytics Dashboard",
+      title: "Landing Page",
+      subtitle: "Professional Landing Page",
       description:
-        "Enterprise-grade analytics platform processing 10M+ data points daily. Real-time visualization and predictive insights.",
-      longDescription:
-        "Transformed complex data into actionable insights. Reduced report generation time by 80% and improved decision-making speed.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc3MDcyNjgyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "TypeScript", "D3.js", "PostgreSQL", "AWS"],
+        "A modern, multi-section landing page featuring an interactive and sleek design.",
+      image: LandingPage_pic,
+      tags: ["React", "Tailwind CSS", "Responsive Design"],
       color: "from-teal-600 to-cyan-600",
-      metrics: ["10M+ Data Points", "80% Faster Reports", "Fortune 500 Client"],
+      github: "https://github.com/chibaU/landing-page",
+      demo: "https://landing-page-umber-ten-45.vercel.app/",
     },
     {
       id: 3,
-      title: "CloudSync",
-      subtitle: "Modern Web Application",
+      title: "Weather App",
+      subtitle: "Weather Web Application",
       description:
-        "Progressive web app with offline-first architecture. Serving 100K+ active users with seamless cross-platform experience.",
-      longDescription:
-        "Revolutionary PWA that works flawlessly offline. Achieved 98% user satisfaction and 4.8★ rating on app stores.",
-      image:
-        "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NzA4MjUwNzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Next.js", "PWA", "Firebase", "Tailwind", "WebSocket"],
+        "A sleek and minimalist weather interface designed with a focus on UI/UX aesthetics, showcasing weather conditions through static data.",
+      image: WeatherApp_pic,
+      tags: ["React", "Tailwind CSS"],
       color: "from-orange-600 to-red-600",
-      metrics: ["100K+ Users", "98% Satisfaction", "4.8★ Rating"],
+      github: "https://github.com/chibaU/weather-app",
     },
   ];
 
@@ -103,22 +95,29 @@ function Projects() {
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-8">
                     <div className="flex gap-4">
-                      <motion.a
-                        href="#"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
-                      >
-                        <ExternalLink className="w-6 h-6 text-white" />
-                      </motion.a>
-                      <motion.a
-                        href="#"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
-                      >
-                        <Github className="w-6 h-6 text-white" />
-                      </motion.a>
+                      {project.demo && (
+                        <motion.a
+                          target="_blank"
+                          href={project.demo}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
+                        >
+                          <ExternalLink className="w-6 h-6 text-white" />
+                        </motion.a>
+                      )}
+
+                      {project.github && (
+                        <motion.a
+                          target="_blank"
+                          href={project.github}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
+                        >
+                          <Github className="w-6 h-6 text-white" />
+                        </motion.a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -164,36 +163,6 @@ function Projects() {
                   {project.description}
                 </motion.p>
 
-                <motion.p
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                  className="text-gray-300"
-                >
-                  {project.longDescription}
-                </motion.p>
-
-                {/* Metrics */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                  className="grid grid-cols-3 gap-4 py-6 border-y border-gray-800"
-                >
-                  {project.metrics.map((metric, i) => (
-                    <div key={i} className="text-center">
-                      <div className="text-sm font-bold text-white mb-1">
-                        {metric.split(" ")[0]}
-                      </div>
-                      <div className="text-xs text-gray-400">
-                        {metric.split(" ").slice(1).join(" ")}
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-
                 {/* Tags */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -211,23 +180,6 @@ function Projects() {
                     </span>
                   ))}
                 </motion.div>
-
-                {/* CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 }}
-                >
-                  <motion.a
-                    href="#"
-                    whileHover={{ x: 5 }}
-                    className="inline-flex items-center gap-2 text-lg font-semibold text-purple-400 group"
-                  >
-                    View Case Study
-                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </motion.a>
-                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -240,9 +192,6 @@ function Projects() {
           viewport={{ once: true }}
           className="mt-24 text-center"
         >
-          <p className="text-xl text-gray-400 mb-8">
-            Want to see more? I have 40+ projects in my portfolio.
-          </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

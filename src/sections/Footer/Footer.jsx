@@ -12,19 +12,11 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", color: "hover:text-gray-300" },
     {
-      icon: Linkedin,
-      href: "#",
-      label: "LinkedIn",
-      color: "hover:text-blue-400",
-    },
-    { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-sky-400" },
-    {
-      icon: Dribbble,
-      href: "#",
-      label: "Dribbble",
-      color: "hover:text-pink-400",
+      icon: Github,
+      href: "https://github.com/chibaU",
+      label: "GitHub",
+      color: "hover:text-gray-300",
     },
   ];
 
@@ -87,34 +79,6 @@ function Footer() {
                 </motion.a>
               ))}
             </motion.div>
-
-            {/* Newsletter */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="pt-6"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-5 h-5 text-purple-400" />
-                <h3 className="font-bold text-white">Stay Updated</h3>
-              </div>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-2 rounded-lg bg-gray-900 border border-gray-800 focus:border-purple-500 outline-none text-white placeholder-gray-500 transition-colors"
-                />
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 bg-linear-to-r from-purple-600 to-teal-500 rounded-lg font-semibold text-white"
-                >
-                  Join
-                </motion.button>
-              </div>
-            </motion.div>
           </div>
 
           {/* Quick Links */}
@@ -157,10 +121,10 @@ function Footer() {
             <ul className="space-y-3">
               {[
                 "Web Development",
-                "Mobile Apps",
-                "UI/UX Design",
-                "Consulting",
                 "Code Review",
+                "Front-end",
+                "Back-end",
+                "Database",
               ].map((service) => (
                 <li key={service}>
                   <span className="text-gray-400 hover:text-teal-400 transition-colors cursor-default">
@@ -188,33 +152,6 @@ function Footer() {
                 <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
               </span>
             </motion.div>
-
-            {/* Links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="flex gap-6 text-sm"
-            >
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Sitemap
-              </a>
-            </motion.div>
           </div>
 
           {/* Tech stack badge */}
@@ -226,7 +163,7 @@ function Footer() {
             className="mt-6 text-center"
           >
             <p className="text-sm text-gray-500">
-              Built with React, TypeScript, Tailwind CSS & Motion
+              Built with React, JavaScript, Tailwind CSS & Motion
             </p>
           </motion.div>
         </div>
