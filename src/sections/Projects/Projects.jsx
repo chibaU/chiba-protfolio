@@ -93,7 +93,12 @@ function Projects() {
                   />
 
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-8">
+                  <div
+                    className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent 
+  opacity-100 lg:opacity-0 lg:group-hover:opacity-100 
+  transition-opacity duration-300 flex items-end justify-center p-8"
+                  >
+                    {" "}
                     <div className="flex gap-4">
                       {project.demo && (
                         <motion.a
@@ -193,6 +198,13 @@ function Projects() {
           className="mt-24 text-center"
         >
           <motion.button
+            onClick={() =>
+              window.open(
+                "https://github.com/chibaU",
+                "_blank",
+                "noopener,noreferrer",
+              )
+            }
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-10 py-5 bg-linear-to-r from-purple-600 to-teal-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/50 transition-all"
