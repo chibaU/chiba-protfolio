@@ -4,7 +4,8 @@ import { ExternalLink, Github, Sparkles, ArrowUpRight } from "lucide-react";
 import SectionHeader from "@/components/custom/SectionHeader";
 import LandingPage_pic from "@assets/landing-page.png";
 import MovieSearch_pic from "@assets/movie-search.png";
-import WeatherApp_pic from "@assets/weather-app.png";
+import BlogProject_pic from "@assets/blog.png";
+
 function Projects() {
   const projects = [
     {
@@ -31,16 +32,18 @@ function Projects() {
       github: "https://github.com/chibaU/landing-page",
       demo: "https://landing-page-umber-ten-45.vercel.app/",
     },
+
     {
       id: 3,
-      title: "Weather App",
-      subtitle: "Weather Web Application",
+      title: "Blog Platform",
+      subtitle: "Modern Content Management System",
       description:
-        "A sleek and minimalist weather interface designed with a focus on UI/UX aesthetics, showcasing weather conditions through static data.",
-      image: WeatherApp_pic,
-      tags: ["React", "Tailwind CSS"],
-      color: "from-orange-600 to-red-600",
-      github: "https://github.com/chibaU/weather-app",
+        "A full-stack blogging platform featuring a professional UI and an optimized reading experience with a robust backend.",
+      image: BlogProject_pic,
+      tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      color: "from-blue-600 to-indigo-600",
+      github: "https://github.com/chibaU/blog",
+      demo: "https://chiba-blog.vercel.app/",
     },
   ];
 
