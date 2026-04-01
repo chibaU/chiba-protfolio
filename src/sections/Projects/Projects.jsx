@@ -40,7 +40,7 @@ function Projects() {
       description:
         "A full-stack blogging platform featuring a professional UI and an optimized reading experience with a robust backend.",
       image: BlogProject_pic,
-      tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      tags: ["React", "Tailwind CSS"],
       color: "from-blue-600 to-indigo-600",
       github: "https://github.com/chibaU/blog",
       demo: "https://chiba-blog.vercel.app/",
