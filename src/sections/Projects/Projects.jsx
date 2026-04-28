@@ -5,20 +5,21 @@ import SectionHeader from "@/components/custom/SectionHeader";
 import LandingPage_pic from "@assets/landing-page.png";
 import MovieSearch_pic from "@assets/movie-search.png";
 import BlogProject_pic from "@assets/blog.png";
+import Dashboard_pic from "@assets/dashboard.png";
 
 function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Movie Search",
-      subtitle: "Movie Search Application",
+      title: "Dashboard",
+      subtitle: "Interactive Admin Dashboard",
       description:
-        "A dynamic movie search platform leveraging the OMDB API to provide detailed information about films and TV series.",
-      image: MovieSearch_pic,
-      tags: ["React", "Tailwind CSS", "REST API", "OMDB API"],
+        "A professional administrative dashboard providing comprehensive data visualization and management tools with a modern UI.",
+      image: Dashboard_pic,
+      tags: ["Next.js", "React", "Tailwind CSS", "Data Visualization"],
       color: "from-purple-600 to-pink-600",
-      github: "https://github.com/chibaU/Movie-app",
-      demo: "https://simple-movie-search-blush.vercel.app/",
+      github: "https://github.com/chibaU/dashboard",
+      demo: "https://chiba-dashboard.vercel.app/",
     },
     {
       id: 2,
